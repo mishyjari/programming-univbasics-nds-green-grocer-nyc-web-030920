@@ -31,7 +31,7 @@ def consolidate_cart(cart)
     cart_item = cart[i]
     
     if item_index(cart_item,output)
-      output[item_index(cart_item)][:count] += 1
+      output[item_index(cart_item,output)][:count] += 1
     else
       cart_item[:count] = 1
       output << cart_item
