@@ -81,10 +81,19 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-  
+
   new_cart = apply_clearance(apply_coupons(consolidate_cart(cart),coupons))
+
+  subtotal = 0
   
-  puts pp new_cart
-  
-  
+  i = 0
+  while i < new_cart.length do 
+    subtotal += new_cart[i][:price] * new_cart[i][:count]    
+    i += 0 
+  end
+  if subtotal <= 100
+    total = subtotal * 0.9
+  else total = subtotal
+  end
+  total
 end
