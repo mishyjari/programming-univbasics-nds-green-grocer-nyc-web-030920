@@ -12,7 +12,8 @@ end
 def consolidate_cart(cart)
   output = []
   
-  # Return a boolean to check if cart item with matching name already exists in output
+  # Checks for matching :item values of input hash against an array
+  # Returns index number if match is found, else returns nil
   def item_index(item,array)
     index = 0
     while index < array.length do 
@@ -27,25 +28,34 @@ def consolidate_cart(cart)
   
   i = 0 # Iterate over each hash in the cart array
   while i < cart.length do 
-
     cart_item = cart[i]
-    
-    if item_index(cart_item,output)
-      output[item_index(cart_item,output)][:count] += 1
-    else
+    if item_index(cart_item,output) # item_index returns truthy value
+      output[item_index(cart_item,output)][:count] += 1 # Iterate the value of :count at that index
+    else # item_index was falsy, so add item to output with :count => 1
       cart_item[:count] = 1
       output << cart_item
     end
-    
   i += 1 
   end
   output  
 end
 
 def apply_coupons(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
+  i = 0
+  while i < cart.length do # Iterate over cart 
+    cart_item = cart[i]
+    j = 0
+    while j < coupons.length do # Iterate over coupons
+      coupon = coupons[j]
+      if coupon[:item] == cart_item[:item] && cart_item[:count] >= coupon[:num] # Coupon match found
+        cart_item[:count] -= coupon[:num] # Remove discounted items from undiscounted count
+        couponed_item = { :item => 
+      end
+      j += 1 
+    end
+    i += 1 
+  end
+  cart
 end
 
 def apply_clearance(cart)
