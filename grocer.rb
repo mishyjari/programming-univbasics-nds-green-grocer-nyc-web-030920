@@ -22,7 +22,6 @@ def consolidate_cart(cart)
         cart[i][:count] = 1
         output << cart[i]
       else
-        puts output[j]
         output[j][:count] += 1
       end
       
