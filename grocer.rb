@@ -39,7 +39,7 @@ def consolidate_cart(cart)
     
   i += 1 
   end
-  output  
+  puts output  
 end
 
 def apply_coupons(cart, coupons)
