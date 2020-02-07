@@ -12,21 +12,13 @@ end
 def consolidate_cart(cart)
   output = []
   
-  i = 0
+  i = 0 # Iterate over each hash in the cart array
   while i < cart.length do 
+
+    item = cart[i]
+    item_name = cart[i][:item]
     
-    j = 0
-    while j < output.length do 
-    
-      if !output[j][:item]
-        cart[i][:count] = 1
-        output << cart[i]
-      else
-        output[j][:count] += 1
-      end
-      
-    j += 1 
-    end
+    # 
  
   i += 1 
   end
