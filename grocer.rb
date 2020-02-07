@@ -13,10 +13,10 @@ def consolidate_cart(cart)
   output = []
   
   # Return a boolean to check if cart item with matching name already exists in output
-  def item_index(item)
+  def item_index(item,array)
     index = 0
     while index < output.length do 
-       if item[:item] == output[index][:item]
+       if item[:item] == array[index][:item]
          result = index
          break
        end
@@ -30,7 +30,7 @@ def consolidate_cart(cart)
 
     cart_item = cart[i]
     
-    if item_index(cart_item)
+    if item_index(cart_item,output)
       output[item_index(cart_item)][:count] += 1
     else
       cart_item[:count] = 1
