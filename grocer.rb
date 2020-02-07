@@ -30,6 +30,7 @@ def consolidate_cart(cart)
  
   i += 1 
   end
+  puts output
   output  
 end
 
