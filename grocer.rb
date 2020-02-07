@@ -32,7 +32,7 @@ def consolidate_cart(cart)
       # Item already exists, find index and iterate count value for that item in output
       j = 0
       while j < output.length do
-        if output[j][:item == cart[i][:item]
+        if output[j][:item] == cart[i][:item]
           output[j][:count] += 1
           break
         end
