@@ -15,7 +15,7 @@ def consolidate_cart(cart)
   # Return a boolean to check if cart item with matching name already exists in output
   def item_index(item,array)
     index = 0
-    while index < output.length do 
+    while index < array.length do 
        if item[:item] == array[index][:item]
          result = index
          break
