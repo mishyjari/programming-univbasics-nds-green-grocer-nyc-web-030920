@@ -35,6 +35,7 @@ def consolidate_cart(cart)
         if output[j][:item == cart[i][:item]
           output[j][:count] += 1
           break
+        end
       j += 1 
       end
     end
