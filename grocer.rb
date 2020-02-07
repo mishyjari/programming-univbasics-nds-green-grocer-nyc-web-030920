@@ -62,8 +62,8 @@ end
 def apply_clearance(cart)
   i = 0
   while i < cart.length do 
-    if cart[i][:clearance]
-      clearance_price = (cart[i][:price] *= 0.8).round(2)
+    if cart[i][:clearance] # clearance truthy
+      clearance_price = (cart[i][:price] *= 0.8).round(2) # Sanitized new price with 20% discount
       cart[i][:price] = clearance_price
     end
   i += 1 
@@ -81,4 +81,10 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
+  
+  new_cart = apply_clearance(apply_coupons(consolidate_cart(cart),coupons))
+  
+  puts pp new_cart
+  
+  
 end
