@@ -49,7 +49,7 @@ def apply_coupons(cart, coupons)
       coupon = coupons[j]
       if coupon[:item] == cart_item[:item] && cart_item[:count] >= coupon[:num] # Coupon match found
         cart_item[:count] -= coupon[:num] # Remove discounted items from undiscounted count
-        couponed_item = { :item => "#{cart_item[:item]} W/ COUPON", :price => coupon[:cost] / coupon[:num], :clearance => cart_item[:clearance], :count => coupon[:num]}
+        couponed_item = { :item => "#{cart_item[:item]} W/COUPON", :price => coupon[:cost] / coupon[:num], :clearance => cart_item[:clearance], :count => coupon[:num]}
         cart << couponed_item
       end
       j += 1 
