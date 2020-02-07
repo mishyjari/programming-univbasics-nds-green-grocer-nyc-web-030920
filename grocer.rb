@@ -12,14 +12,32 @@ end
 def consolidate_cart(cart)
   output = []
   
+  # Return a boolean to check if cart item with matching name already exists in output
+  def is_new_item(item)
+    result = false
+    if output[item][:item]
+      result = true
+    end
+    result
+  end
+  
   i = 0 # Iterate over each hash in the cart array
   while i < cart.length do 
 
-    item = cart[i]
-    item_name = cart[i][:item]
-    
-    # 
- 
+    if is_new_item(cart[i])
+      # Item not added yet, push hash into output with count set to 1
+      cart[i][:count] = 1
+      output << cart[i]
+    else
+      # Item already exists, find index and iterate count value for that item in output
+      j = 0
+      while j < output.length do
+        if output[j][:item == cart[i][:item]
+          output[j][:count] += 1
+          break
+      j += 1 
+      end
+    end
   i += 1 
   end
   output  
